@@ -111,7 +111,7 @@ def pandoc_slides(
     cite_style = config['cite_style']
     pandoc_command = [
         'pandoc', '-f', 'markdown+smart', '-s',
-        '-F', 'pandoc-citeproc',
+        '-C',
         '--csl', cite_style,
         '--bibliography', bib_path,
         '-F', get_script_path("slide_filter.py"),
@@ -139,7 +139,7 @@ def pandoc_notes(filename: str, config: Dict[str, str]) -> str:
     pandoc_command = [
         'pandoc', '-f', 'markdown+smart',
         '--pdf-engine=xelatex',
-        '-F', 'pandoc-citeproc',
+        '-C',
         '--csl', cite_style,
         '--bibliography', bib_path,
         '-F', get_script_path("slide_filter.py"),
